@@ -11,7 +11,7 @@ import batalhanaval.exceptions.PosicaoJaAtingidaException;
  * 
  * @param jogo
  * @author Darlan P. de Campos
- * @author Roger de Córdova Farias
+ * @author Roger de Cordova Farias
  */
 
 public class Jogador implements Serializable {
@@ -60,7 +60,7 @@ public class Jogador implements Serializable {
 		int valorAtual = getOponente().getTabuleiro().getPosicao(
 				coluna, linha);
 
-		// Quadrado não atingido?
+		// Quadrado nao atingido?
 		if (valorAtual >= 1) {
 			tiros.add(new Point(coluna, linha));
 			getOponente().getTabuleiro().setPosicao(coluna, linha, -valorAtual);
