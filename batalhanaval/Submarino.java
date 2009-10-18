@@ -4,7 +4,7 @@ package batalhanaval;
  * Submarino.
  * 
  * @author Darlan P. de Campos
- * @author Roger de Córdova Farias
+ * @author Roger de CÃ³rdova Farias
  *
  */
 

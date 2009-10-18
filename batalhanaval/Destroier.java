@@ -1,10 +1,10 @@
 package batalhanaval;
 
 /**
- * Destróier.
+ * DestrÃ³ier.
  * 
  * @author Darlan P. de Campos
- * @author Roger de Córdova Farias
+ * @author Roger de CÃ³rdova Farias
  *
  */
 
@@ -12,6 +12,6 @@ package batalhanaval;
 public class Destroier extends Navio{
 
 	public Destroier(Jogador jog) {
-		super("Destróier", 3, 4, jog);
+		super("DestrÃ³ier", 3, 4, jog);
 	}
 }

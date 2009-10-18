@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Jogo de batalha naval.
  * 
  * @author Darlan P. de Campos
- * @author Roger de Córdova Farias
+ * @author Roger de CÃ³rdova Farias
  * 
  */
 
@@ -16,7 +16,7 @@ public class Jogo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	//// Constantes
-	// Níveis de dificuldade
+	// NÃ­veis de dificuldade
 	public static final int FACIL = 0;
 	public static final int MEDIO = 1;
 	public static final int DIFICIL = 2;

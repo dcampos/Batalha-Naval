@@ -4,12 +4,12 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 /**
- * Jogador automático, utilizando uma inteligência computacional
- * básica.
+ * Jogador automÃ¡tico, utilizando uma inteligÃªncia computacional
+ * bÃ¡sica.
  * 
  * @param jogo O jogo atual
  * @author Darlan P. de Campos
- * @author Roger de Córdova Farias
+ * @author Roger de CÃ³rdova Farias
  */
 public class Robo extends Jogador {
 	
@@ -41,13 +41,13 @@ public class Robo extends Jogador {
 	}
 	
 	/**
-	 * O método de ataque do jogador robô.
+	 * O mÃ©todo de ataque do jogador robÃ´.
 	 * 
-	 * Age de acordo com o nível de dificuldade do jogo:<br><br>
+	 * Age de acordo com o nÃ­vel de dificuldade do jogo:<br><br>
 	 * 
-	 * Fácil: atira aleatoriamente.<br>
-	 * Médio: pode atirar aleatoriamente ou com inteligência.<br>
-	 * Difícil: atira com inteligência.
+	 * FÃ¡cil: atira aleatoriamente.<br>
+	 * MÃ©dio: pode atirar aleatoriamente ou com inteligÃªncia.<br>
+	 * DifÃ­cil: atira com inteligÃªncia.
 	 * 
 	 */
 	public int atira (){
@@ -103,10 +103,10 @@ public class Robo extends Jogador {
 			int y = ultimoAcerto.y;
 			int x = ultimoAcerto.x;
 
-			// Quando o robô chegar a uma posição em que o último
-			// acerto está cercado por posições inválidas,
-			// não pode entrar em loop infinito tentando encontrar
-			// uma posição válida.
+			// Quando o robÃ´ chegar a uma posiÃ§Ã£o em que o Ãºltimo
+			// acerto estÃ¡ cercado por posiÃ§Ãµes invÃ¡lidas,
+			// nÃ£o pode entrar em loop infinito tentando encontrar
+			// uma posiÃ§Ã£o vÃ¡lida.
 			int tentativas = 0;
 			
 			do {

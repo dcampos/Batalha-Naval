@@ -7,19 +7,19 @@ import java.io.Serializable;
  * O tabuleiro do jogador.
  * 
  * Possui um array bidimensional de inteiros (mapa)
- * representando as seguintes informaÁıes:<br>
+ * representando as seguintes informa√ß√µes:<br>
  * 
  * 1 - Quadrado vazio<br>
  * 2 - Barco de patrulha<br>
- * 4 - DestrÛier<br>
+ * 4 - Destr√≥ier<br>
  * 8 - Submarino<br>
- * 16 - EncouraÁado<br>
- * 32 - Porta-aviıes<br>
+ * 16 - Encoura√ßado<br>
+ * 32 - Porta-avi√µes<br>
  * 
- * Quando o quadrado È atingido, passa para o negativo.
+ * Quando o quadrado √© atingido, passa para o negativo.
  * 
  * @author Darlan P. de Campos
- * @author Roger de CÛrdova Farias
+ * @author Roger de C√≥rdova Farias
  *
  */
 public class Tabuleiro implements Serializable {
@@ -47,7 +47,7 @@ public class Tabuleiro implements Serializable {
 	 * Adiciona um navio ao tabuleiro.
 	 * 
 	 * @param navio
-	 * @throws NullPointerException Se o navio n„o estiver ainda posicionado.
+	 * @throws NullPointerException Se o navio n√£o estiver ainda posicionado.
 	 */
 	public void adicionaNavio(Navio navio) throws NullPointerException {
 		for (Point p : navio.getArrayPosicao()) {
@@ -56,7 +56,7 @@ public class Tabuleiro implements Serializable {
 	}
 
 	/**
-	 * Retorna true ou false se a posiÁ„o do navio
+	 * Retorna true ou false se a posi√ß√£o do navio
 	 * cabe no tabuleiro.
 	 * 
 	 * @param posicao
@@ -77,7 +77,7 @@ public class Tabuleiro implements Serializable {
 	}
 
 	/**
-	 * Define uma posiÁ„o do tabuleiro.
+	 * Define uma posi√ß√£o do tabuleiro.
 	 * 
 	 * @param x Coluna
 	 * @param y Linha
@@ -97,7 +97,7 @@ public class Tabuleiro implements Serializable {
 	}
 
 	/**
-	 * Retorna uma posiÁ„o do tabuleiro.
+	 * Retorna uma posi√ß√£o do tabuleiro.
 	 * 
 	 * @param x Coluna
 	 * @param y Linha

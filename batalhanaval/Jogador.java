@@ -92,10 +92,10 @@ public class Jogador implements Serializable {
 	}
 
 	/**
-	 * Posiciona e define a orientação de um navio no tabuleiro.
+	 * Posiciona e define a orientaÃ§Ã£o de um navio no tabuleiro.
 	 * 
-	 * @param pos Posição do navio.
-	 * @param or Orientação (vertical ou horizontal).
+	 * @param pos PosiÃ§Ã£o do navio.
+	 * @param or OrientaÃ§Ã£o (vertical ou horizontal).
 	 * @param id Identificador.
 	 */
 	public void posicionaNavio(Point pos, int id) {
@@ -119,7 +119,7 @@ public class Jogador implements Serializable {
 	 * Destroi um navio do jogador, subtraindo id de seu
 	 * total de identificadores de navios.
 	 * 
-	 * @param id O identificador do navio destruído.
+	 * @param id O identificador do navio destruÃ­do.
 	 */
 	private void destroiNavio(int id) {
 		frotaRestante -= id;

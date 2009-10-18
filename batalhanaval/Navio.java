@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.io.Serializable;
 
 /**
- * Classe abstrata b·sica de um navio.
+ * Classe abstrata b√°sica de um navio.
  * 
  * @author
  * 
@@ -55,11 +55,11 @@ public abstract class Navio implements Serializable {
 	}
 	
 	/**
-	 * Gera um array de pontos a partir da primeira posiÁ„o
+	 * Gera um array de pontos a partir da primeira posi√ß√£o
 	 * do navio.
 	 * 
 	 * @return
-	 * @throws NullPointerException Se o navio ainda n„o estiver posicionado.
+	 * @throws NullPointerException Se o navio ainda n√£o estiver posicionado.
 	 */
 	public Point[] getArrayPosicao() throws NullPointerException {
 		Point[] arrayPos = new Point[tamanho];

@@ -4,7 +4,7 @@ package batalhanaval;
  * Barco de patrulha.
  * 
  * @author Darlan P. de Campos
- * @author Roger de  C�rdova Farias
+ * @author Roger de  CÃ³rdova Farias
  *
  */
 @SuppressWarnings("serial")

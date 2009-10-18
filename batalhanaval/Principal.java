@@ -3,7 +3,7 @@ package batalhanaval;
 import batalhanaval.gui.*;
 
 public class Principal {
-	// Vers„o do jogo
+	// Vers√£o do jogo
 	public static final float VERSAO = 1.1f;
 
 	/**

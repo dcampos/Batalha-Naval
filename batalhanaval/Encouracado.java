@@ -1,10 +1,10 @@
 package batalhanaval;
 
 /**
- * Encouraçado.
+ * EncouraÃ§ado.
  * 
  * @author Darlan P. de Campos
- * @author Roger de  Córdova Farias
+ * @author Roger de  CÃ³rdova Farias
  *
  */
 
@@ -12,12 +12,12 @@ package batalhanaval;
 public class Encouracado extends Navio {
 	
 	/**
-	 * Constroi um novo encouraçado.
+	 * Constroi um novo encouraÃ§ado.
 	 * 
 	 * @param jog Jogador
 	 */
 	public Encouracado(Jogador jog) {
-		super("Encouraçado", 4, 16, jog);
+		super("EncouraÃ§ado", 4, 16, jog);
 	}
 }
 

@@ -1,10 +1,10 @@
 package batalhanaval;
 
 /**
- * Porta-aviıes.
+ * Porta-avi√µes.
  * 
  * @author Darlan P. de Campos
- * @author Roger de CÛrdova Farias
+ * @author Roger de C√≥rdova Farias
  *
  */
 
@@ -12,7 +12,7 @@ package batalhanaval;
 public class PortaAvioes extends Navio {
 
 	public PortaAvioes(Jogador jog) {
-		super("Porta-aviıes", 5, 32, jog);
+		super("Porta-avi√µes", 5, 32, jog);
 	}
 
 }
