@@ -1,5 +1,4 @@
-resources/
-doc/
-resources/
-.settings/
-.classpath/
+resources
+doc
+resources
+.settings
