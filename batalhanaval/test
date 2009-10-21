@@ -1,9 +1,0 @@
-let g:vjde_out_path='.'
-let g:vjde_src_path=''
-let g:vjde_lib_path=''
-let g:vjde_web_app=''
-let g:vjde_test_path=''
-let g:vjde_java_command='javaw'
-let g:vjde_show_paras=0
-let g:vjde_xml_advance=0
-" vim :ft=vim:
