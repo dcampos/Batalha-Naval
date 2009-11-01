@@ -1,16 +1,16 @@
 package batalhanaval.exceptions;
 
 /**
- * ExceÁ„o que indica que a posiÁ„o do tabuleiro
- * j· foi atingida.
+ * Exce√ß√£o que indica que a posi√ß√£o do tabuleiro
+ * j√° foi atingida.
  *  
  * @author Darlan P. de Campos
- * @author Roger de CÛrdova Farias
+ * @author Roger de C√≥rdova Farias
  */
 @SuppressWarnings("serial")
 public class PosicaoJaAtingidaException extends Exception {
 
 	public PosicaoJaAtingidaException() {
-		super("PosiÁ„o j· atingida!");
+		super("Posi√ß√£o j√° atingida!");
 	}
 }
