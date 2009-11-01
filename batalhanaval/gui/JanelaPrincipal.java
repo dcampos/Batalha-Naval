@@ -31,11 +31,11 @@ import javax.swing.Timer;
 import batalhanaval.*;
 
 /**
- * A janela principal da aplicaÁ„o.
+ * A janela principal da aplica√ß√£o.
  * 
  * @param jogo
  * @author Darlan P. de Campos
- * @author Roger de CÛrdova Farias
+ * @author Roger de C√≥rdova Farias
  */
 
 @SuppressWarnings("serial")
@@ -64,7 +64,7 @@ public class JanelaPrincipal extends JFrame {
 	private JRadioButtonMenuItem itemNivelFacil;
 	private JRadioButtonMenuItem itemNivelMedio;
 	private JRadioButtonMenuItem itemNivelDificil;
-	private JRadioButtonMenuItem itemNivelAtual; // Identifica o nÌvel atual
+	private JRadioButtonMenuItem itemNivelAtual; // Identifica o n√≠vel atual
 
 	private JMenu menuAjuda;
 	private JMenuItem itemAjudaSobre;
@@ -95,10 +95,10 @@ public class JanelaPrincipal extends JFrame {
 					} else if ( res > 1) {
 						if (JanelaPrincipal.this.jogo.getEstado() == Jogo.TERMINADO) {
 							temp.stop();
-							mostraEvento("A batalha terminou! VocÍ foi derrotado!");
+							mostraEvento("A batalha terminou! Voc√™ foi derrotado!");
 						} else if (JanelaPrincipal.this.jogo.getJogador(
 								0 ).getNavio(res).estaDestruido())
-							mostraEvento("O advers·rio afundou o seu "
+							mostraEvento("O advers√°rio afundou o seu "
 									+ JanelaPrincipal.this.jogo.getJogador(
 											0 ).getNavio(res).getNome().toLowerCase() + "!");
 					}
@@ -116,9 +116,9 @@ public class JanelaPrincipal extends JFrame {
 	}
 
 	/**
-	 * LÍ as imagens a partir do disco.
+	 * L√™ as imagens a partir do disco.
 	 * 
-	 * As imagens podem ser acessadas pelos mÈtodos
+	 * As imagens podem ser acessadas pelos m√©todos
 	 * getImagemFogo(), getImagemAgua() e getImagemNavio(int idNavio).
 	 * 
 	 */
@@ -185,17 +185,17 @@ public class JanelaPrincipal extends JFrame {
 		itemJogoSalvar.addActionListener(ta);
 		itemJogoSair.addActionListener(ta);
 
-		menuJogoNivel = new JMenu("NÌvel");
+		menuJogoNivel = new JMenu("N√≠vel");
 		menuJogoNivel.setMnemonic('N');
 
-		itemNivelFacil = new JRadioButtonMenuItem("F·cil");
+		itemNivelFacil = new JRadioButtonMenuItem("F√°cil");
 		itemNivelFacil.setMnemonic('F');
 		itemNivelFacil.addActionListener(ta);
-		itemNivelMedio = new JRadioButtonMenuItem("MÈdio");
+		itemNivelMedio = new JRadioButtonMenuItem("M√©dio");
 		itemNivelMedio.setMnemonic('M');
 		itemNivelMedio.addActionListener(ta);
 		itemNivelMedio.setSelected(true);
-		itemNivelDificil = new JRadioButtonMenuItem("DifÌcil");
+		itemNivelDificil = new JRadioButtonMenuItem("Dif√≠cil");
 		itemNivelDificil.setMnemonic('D');
 		itemNivelDificil.addActionListener(ta);
 		
@@ -280,7 +280,7 @@ public class JanelaPrincipal extends JFrame {
 
 	public void mostraEvento (String msg) {
 		caixaEventos.append("> " + msg + "\n");
-		// Rolagem autom·tica
+		// Rolagem autom√°tica
 		caixaEventos.setCaretPosition(caixaEventos.getDocument().getLength() );		
 	}
 
@@ -304,10 +304,10 @@ public class JanelaPrincipal extends JFrame {
 					saida.writeObject(jogo);
 					saida.close();
 				} catch (FileNotFoundException e1) {
-					mostraEvento("Arquivo n„o encontrado!");
+					mostraEvento("Arquivo n√£o encontrado!");
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					mostraEvento("N„o foi possÌvel salvar!");
+					mostraEvento("N√£o foi poss√≠vel salvar!");
 					e1.printStackTrace();
 				}
 				mostraEvento ("Jogo salvo com sucesso!");
@@ -335,10 +335,10 @@ public class JanelaPrincipal extends JFrame {
 					mostraEvento ("Jogo aberto com sucesso!");
 					entrada.close();
 				} catch (FileNotFoundException e1) {
-					mostraEvento("Arquivo n„o encontrado!");
+					mostraEvento("Arquivo n√£o encontrado!");
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					mostraEvento("N„o foi possÌvel salvar!");
+					mostraEvento("N√£o foi poss√≠vel salvar!");
 					e1.printStackTrace();
 				} catch (ClassNotFoundException e2) {
 					e2.printStackTrace();
@@ -346,7 +346,7 @@ public class JanelaPrincipal extends JFrame {
 			} else if (src instanceof JRadioButtonMenuItem
 					&& src != itemNivelAtual) {
 				JOptionPane.showMessageDialog(null,
-						"O grau de dificuldade ser· modificado no prÛximo jogo.",
+						"O grau de dificuldade ser√° modificado no pr√≥ximo jogo.",
 						"Dificuldade", JOptionPane.INFORMATION_MESSAGE);
 				dificuldadeAtual = (src == itemNivelFacil ? Jogo.FACIL
 						: (src == itemNivelMedio ? Jogo.MEDIO
@@ -361,7 +361,7 @@ public class JanelaPrincipal extends JFrame {
 	}
 	
 	/**
-	 * Inicia o temporizador do jogador autom·tico.
+	 * Inicia o temporizador do jogador autom√°tico.
 	 * 
 	 */
 	public void tempoDeEspera (){

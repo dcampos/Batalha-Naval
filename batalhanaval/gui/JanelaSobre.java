@@ -15,10 +15,10 @@ import javax.swing.JTextArea;
 import batalhanaval.*;
 
 /**
- * Diálogo de créditos do jogo.
+ * DiÃ¡logo de crÃ©ditos do jogo.
  *
  * @author Darlan P. de Campos
- * @author Roger de Córdova Farias
+ * @author Roger de CÃ³rdova Farias
  */
 
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class JanelaSobre extends JDialog implements ActionListener {
 		painel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
 		JTextArea creditos = new JTextArea("Batalha Naval " + Principal.VERSAO
-				+ "\n\nUm jogo multiplataforma de estratégia, "
-				+ "\ncom uso de inteligência artificial."
+				+ "\n\nUm jogo multiplataforma de estratÃ©gia, "
+				+ "\ncom uso de inteligÃªncia artificial."
 				+ "\n\nUFSC/CTC/INE"
 				+ "\nTurma: INE 5605 238B - Desenvolvimento"
 				+ "\nde Sistemas Orientados a Objetos"
 				+ "\n\nProfessor: Marco Aurelio Wehrmeister"
-				+ "\n\nAcadêmicos:\nDarlan Pedro de Campos\n"
-				+ "Roger de Córdova Farias");
+				+ "\n\nAcadÃªmicos:\nDarlan Pedro de Campos\n"
+				+ "Roger de CÃ³rdova Farias");
 		creditos.setOpaque(false);
 		creditos.setEditable(false);
 
@@ -57,7 +57,7 @@ public class JanelaSobre extends JDialog implements ActionListener {
 		add(painelOk);
 	}
 
-	// Tratamento de ação do botão OK
+	// Tratamento de aÃ§Ã£o do botÃ£o OK
 	public void actionPerformed(ActionEvent e) {
 		JanelaSobre.this.dispose();
 	}
