@@ -1,4 +1,5 @@
 doc
 resources
 .settings
+*.class
 
