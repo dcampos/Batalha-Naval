@@ -1,6 +1,0 @@
-package batalhanaval;
-
-public class Submarino extends Navio {
- 
-}
- 

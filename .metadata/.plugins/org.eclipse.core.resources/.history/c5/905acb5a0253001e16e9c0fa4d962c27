@@ -1,8 +1,0 @@
-import java.awt.Point;
-
-public class Destroier extends Navio {
-	private static int tamanho = 4;
-	public Destroier(Point[] pos, Jogador jog) {
-		super(tamanho, pos, jog);
-	}
-}

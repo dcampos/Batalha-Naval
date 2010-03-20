@@ -1,8 +1,0 @@
-package batalhanaval;
-
-public class Submarino extends Navio {
-	public static final int TAMANHO = 4;
-	public static final int ID = 12;
-
-}
- 

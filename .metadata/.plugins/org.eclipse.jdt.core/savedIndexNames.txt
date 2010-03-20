@@ -1,2 +1,0 @@
-INDEX VERSION 1.125+E:\Documentos\My Dropbox\ProjetoFinal (1)\.metadata\.plugins\org.eclipse.jdt.core
-1283363542.index
