@@ -1,0 +1,63 @@
+package batalhanaval.gui;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+@SuppressWarnings("serial")
+public class JanelaPrincipal extends JFrame {
+
+	JMenuBar barraMenus;
+	
+	JMenu menuJogo;
+	JMenuItem itemJogoNovo;
+	JMenuItem itemJogoAbrir;
+	JMenuItem itemJogoSalvar;
+	JMenuItem itemJogoNivel;
+	JMenuItem itemJogoSair;
+	
+	JMenu menuAjuda;
+	JMenuItem itemAjudaSobre;
+	
+	public JanelaPrincipal() {
+		super("Batalha Naval");
+
+		adicionaMenus();
+	}
+	
+	private void adicionaMenus() {
+		menuJogo = new JMenu("Jogo");
+		menuJogo.setMnemonic('J');
+		
+		itemJogoNovo = new JMenuItem("Novo");
+		itemJogoNovo.setMnemonic('N');
+		itemJogoAbrir = new JMenuItem("Abrir...");
+		itemJogoAbrir.setMnemonic('A');
+		itemJogoSalvar = new JMenuItem("Salvar");
+		itemJogoSalvar.setMnemonic('S');
+		itemJogoNivel = new JMenuItem("Nível");
+		itemJogoNivel.setMnemonic('N');
+		itemJogoSair = new JMenuItem("Sair");
+		itemJogoSair.setMnemonic('R');
+		
+		menuJogo.add(itemJogoNovo);
+		menuJogo.add(itemJogoAbrir);
+		menuJogo.add(itemJogoSalvar);
+		menuJogo.add(itemJogoSair);
+
+		barraMenus = new JMenuBar();
+		barraMenus.add(menuJogo);
+		
+		menuAjuda = new JMenu("Ajuda");
+		menuAjuda.setMnemonic('A');
+		
+		itemAjudaSobre = new JMenuItem("Sobre...");
+		itemAjudaSobre.setMnemonic('S');
+	
+		menuAjuda.add(itemAjudaSobre);
+		barraMenus.add(menuAjuda);
+		
+		setJMenuBar(barraMenus);
+	}
+}

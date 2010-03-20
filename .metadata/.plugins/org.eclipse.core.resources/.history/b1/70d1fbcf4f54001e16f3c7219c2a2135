@@ -1,0 +1,36 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+public class Jogador {
+
+	private int[][] tabuleiro;
+	private Jogo jogo;
+	private Navio[] frota;
+
+	/**
+	 * Jogador de batalha naval.
+	 * 
+	 * @param jogo
+	 */
+	public Jogador(Jogo jogo) {
+		this.tabuleiro = new int[10][10]; // Tabuleiro zerado
+		this.jogo = jogo;
+		this.frota = new Navio[5];
+		
+		frota[0] = new BarcoPatrulha();
+		frota[1] = new Destroier(new Point[Destroier.TAMANHO], this);
+		frota[2] = new Submarino();
+		frota[3] = new Encouracado();
+		frota[4] = new PortaAvioes();
+	}
+
+	public void atira(int i, int j) {
+	
+	}
+
+	public Navio getNavio(int id) {
+		return null;
+	}
+
+}

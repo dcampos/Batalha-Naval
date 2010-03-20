@@ -1,0 +1,12 @@
+/**
+ * Jogo de batalha naval.
+ * 
+ * @author Darlan, Roger
+ *
+ */
+public class Jogo {
+ 
+	private Jogador[] jogadores;
+	 
+}
+ 

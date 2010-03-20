@@ -1,0 +1,47 @@
+package batalhanaval;
+
+import java.awt.Point;
+import java.io.Serializable;
+
+/**
+ * Jogador de batalha naval. Possui um tabuleiro,
+ * representado por um array de inteiros.
+ * 
+ * @param jogo
+ * 
+ */
+
+public class Jogador implements Serializable {
+
+	private int[][] tabuleiro;
+	private Jogo jogo;
+	private Navio[] frota;
+
+	public Jogador(Jogo jogo) {
+		this.tabuleiro = new int[10][10]; // Tabuleiro zerado
+		this.jogo = jogo;
+		this.frota = new Navio[5];
+		
+		frota[0] = new BarcoPatrulha(new Point[BarcoPatrulha.TAMANHO], this);
+		frota[1] = new Submarino	(new Point[Submarino.TAMANHO], this);
+		frota[2] = new Destroier 	(new Point[Destroier.TAMANHO], this);
+		frota[3] = new Encouracado	(new Point[Encouracado.TAMANHO], this);
+		frota[4] = new PortaAvioes	(new Point[PortaAvioes.TAMANHO], this);
+	}
+
+	public void atira(int x, int y) {
+	
+	}
+
+	public Navio getNavio(int id) {
+		return frota[id-10];
+	}
+	
+	public Jogo getJogo() {
+		return jogo;
+	}
+	
+	public void setPosTabuleiro (int x, int y, int valor) {
+		tabuleiro[y][x] = valor;
+	}
+}

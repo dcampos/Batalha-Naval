@@ -1,0 +1,62 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+/**
+ * Classe abstrata básica de um navio.
+ * 
+ * @author 
+ *
+ */
+public abstract class Navio {
+	// Constantes para os identificadores dos navios.
+//	public static final int BARCO_PATRULA = 2;
+//	public static final int SUBMARINO = 4;
+//	public static final int DESTROIER = 8;
+//	public static final int ENCOURACADO = 16;
+//	public static final int PORTA_AVIOES = 32;
+	
+	private int tamanho;
+	private int id;
+	
+	private Jogador jogador;
+	private Point[] posicao;
+	
+	public Navio(int tamanho, int identificador, Jogador jogador) {
+		this.tamanho = tamanho;
+		this.id = identificador;
+		
+		this.jogador = jogador;
+		this.posicao = new Point[tamanho];
+	}
+
+	public int getTamanho () {
+		return tamanho;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public Jogador getJogador() {
+		return jogador;
+	}
+
+	public Point[] getPosicao() {
+		return posicao;
+	}
+	
+	public void setPosicao(Point[] pos) {
+		posicao = pos;
+		for (int i = 0; i < pos.length; i++) {
+			jogador.getTabuleiro().setQuadrado(pos[i].x, pos[i].y, id);
+		}
+	}
+	
+	public boolean estaDestruido () {
+		for (int i = 0; i < posicao.length; i++)
+			if (jogador.getTabuleiro().getQuadrado(posicao[i].x, posicao[i].y) > 0)
+				return true;
+		return false;
+	}
+}

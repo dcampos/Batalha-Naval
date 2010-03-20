@@ -1,0 +1,29 @@
+package batalhanaval.gui;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class PainelGrade extends JPanel {
+	public PainelGrade() {
+		// TODO Auto-generated constructor stub
+		setPreferredSize(new Dimension(400, 400));
+		setBackground(Color.BLUE);
+		setBorder(BorderFactory.createLineBorder(Color.WHITE));
+	}
+	
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(Color.WHITE);
+		System.out.println(this.getWidth());
+		for (int i=1; i<11; i++) {
+			g.drawLine(i*40, 0, i*40, 400);
+			g.drawLine(0, i*40, 0, 400);
+		}
+	}
+}

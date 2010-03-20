@@ -1,0 +1,22 @@
+package batalhanaval;
+
+/**
+ * Encouraçado.
+ * 
+ * @author Darlan P. de Campos
+ * @author Roger de  Córdova Farias
+ *
+ */
+
+public class Encouracado extends Navio {
+	
+	/**
+	 * Constroi um novo encouraçado.
+	 * 
+	 * @param jog Jogador
+	 */
+	public Encouracado(Jogador jog) {
+		super(4, 32, jog);
+	}
+}
+ 

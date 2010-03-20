@@ -1,0 +1,14 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+public class PortaAvioes extends Navio {
+	public static final int TAMANHO = 5;
+	public static final int ID = 14;
+
+	public PortaAvioes(Point[] posicao, Jogador jog) {
+		super(TAMANHO, ID, posicao, jog);
+	}
+
+}
+ 

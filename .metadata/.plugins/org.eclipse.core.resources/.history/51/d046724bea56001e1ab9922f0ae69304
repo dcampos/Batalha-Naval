@@ -1,0 +1,17 @@
+package batalhanaval;
+
+/**
+ * Porta-aviões.
+ * 
+ * @author Darlan P. de Campos
+ * @author Roger de  Córdova Farias
+ *
+ */
+
+public class PortaAvioes extends Navio {
+
+	public PortaAvioes(Jogador jog) {
+		super(5, 32, jog);
+	}
+
+}

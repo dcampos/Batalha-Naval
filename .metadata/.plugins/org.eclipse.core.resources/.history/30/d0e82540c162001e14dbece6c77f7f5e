@@ -1,0 +1,263 @@
+package batalhanaval.gui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import batalhanaval.*;
+
+@SuppressWarnings("serial")
+public class JanelaPrincipal extends JFrame {
+	private Jogo jogo;
+
+	// Imagens
+	private Image imagensNavios[];
+	private Image fogo, agua, fundo1, fundo2;
+	
+	// Grades
+	PainelGrade mapa1;
+	PainelGrade mapa2;
+	
+	// Menus
+	private JMenuBar barraMenus;
+
+	private JMenu menuJogo;
+	private JMenuItem itemJogoNovo;
+	private JMenuItem itemJogoAbrir;
+	private JMenuItem itemJogoSalvar;
+	private JMenuItem itemJogoSair;
+
+	private JMenu menuJogoNivel;
+	private JRadioButtonMenuItem itemNivelFacil;
+	private JRadioButtonMenuItem itemNivelMedio;
+	private JRadioButtonMenuItem itemNivelDificil;
+	private JRadioButtonMenuItem itemNivelAtual; // Identifica o nível atual
+
+	private JMenu menuAjuda;
+	private JMenuItem itemAjudaSobre;
+
+	private JTextArea caixaEventos;
+
+	public JanelaPrincipal(Jogo jogo) {
+		super("Batalha Naval " + Jogo.VERSAO);
+		
+		this.jogo = jogo;
+
+		setLayout(new BorderLayout());
+		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		abreImagens();
+		adicionaGrades();
+		adicionaMenus();
+		adicionaCaixaEventos();
+	}
+
+	/**
+	 * Lê as imagens a partir do disco.
+	 * 
+	 * As imagens podem ser acessadas pelos métodos
+	 * getImagemFogo(), getImagemAgua() e getImagemNavio(ind idNavio).
+	 * 
+	 */
+	private void abreImagens() {
+		imagensNavios = new Image[10]; // 5 navios + fogo + água
+		String arquivos1[] = new String[]
+		        {"agua", "fogo", "mar1", "mar2"};
+		String arquivos2[] = new String[]
+		        {"BarcoPatrulha", "Destroier", "Submarino",
+				 "Encouracado", "PortaAvioes"};
+		try {
+			agua = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + arquivos1[0] + ".png"));
+			fogo = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + arquivos1[1] + ".png"));
+			fundo1 = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + arquivos1[2] + ".png"));
+			fundo2 = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + arquivos1[3] + ".png"));
+			for (int i=0; i<10; i++) {
+				imagensNavios[i] = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + (i > 4
+							? arquivos2[i-5] + "V"
+							: arquivos2[i] + "H") + ".png"));
+			}
+		} catch (IOException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
+	}
+
+	private void adicionaGrades() {
+		JPanel mapas = new JPanel(new GridLayout(1, 2, 30, 10));
+		//mapas.setPreferredSize(new Dimension(830, 400));
+		mapas.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+		PainelGrade mapa1 = new PainelGrade(this,
+				this.jogo.getJogador(0), fundo1);
+		PainelGrade mapa2 = new PainelGrade(this,
+				this.jogo.getJogador(1), fundo2);
+		
+		mapas.add(mapa1);
+		mapas.add(mapa2);
+		add(mapas, BorderLayout.NORTH);
+
+	}
+
+	private void adicionaMenus() {
+		menuJogo = new JMenu("Jogo");
+		menuJogo.setMnemonic('J');
+
+		TratadorAcoes ta = new TratadorAcoes();
+		itemJogoNovo = new JMenuItem("Novo");
+		itemJogoNovo.setMnemonic('N');
+		itemJogoAbrir = new JMenuItem("Abrir...");
+		itemJogoAbrir.setMnemonic('A');
+		itemJogoSalvar = new JMenuItem("Salvar");
+		itemJogoSalvar.setMnemonic('S');
+		itemJogoSair = new JMenuItem("Sair");
+		itemJogoSair.setMnemonic('R');
+		itemJogoSair.addActionListener(ta);
+
+		menuJogoNivel = new JMenu("Nível");
+		menuJogoNivel.setMnemonic('N');
+
+		itemNivelFacil = new JRadioButtonMenuItem("Fácil");
+		itemNivelFacil.setMnemonic('F');
+		itemNivelFacil.setSelected(true);
+		itemNivelFacil.addActionListener(ta);
+		itemNivelMedio = new JRadioButtonMenuItem("Médio");
+		itemNivelMedio.setMnemonic('M');
+		itemNivelMedio.addActionListener(ta);
+		itemNivelDificil = new JRadioButtonMenuItem("Difícil");
+		itemNivelDificil.setMnemonic('D');
+		itemNivelDificil.addActionListener(ta);
+		
+		itemNivelAtual = itemNivelFacil;
+
+		ButtonGroup grupoNivel = new ButtonGroup();
+		grupoNivel.add(itemNivelFacil);
+		grupoNivel.add(itemNivelMedio);
+		grupoNivel.add(itemNivelDificil);
+
+		menuJogoNivel.add(itemNivelFacil);
+		menuJogoNivel.add(itemNivelMedio);
+		menuJogoNivel.add(itemNivelDificil);
+
+		menuJogo.add(itemJogoNovo);
+		menuJogo.add(itemJogoAbrir);
+		menuJogo.add(itemJogoSalvar);
+		menuJogo.add(menuJogoNivel);
+		menuJogo.addSeparator();
+		menuJogo.add(itemJogoSair);
+
+		barraMenus = new JMenuBar();
+		barraMenus.add(menuJogo);
+
+		menuAjuda = new JMenu("Ajuda");
+		menuAjuda.setMnemonic('A');
+
+		itemAjudaSobre = new JMenuItem("Sobre...");
+		itemAjudaSobre.setMnemonic('S');
+		itemAjudaSobre.addActionListener(ta);
+
+		menuAjuda.add(itemAjudaSobre);
+		barraMenus.add(menuAjuda);
+
+		setJMenuBar(barraMenus);
+	}
+
+	public Image getImagemFogo () {
+		return fogo;
+	}
+	
+	public Image getImagemAgua() {
+		return agua;
+	}
+
+	public Image getImagemNavio(int id, int or) {
+		switch (id) {
+		case Tabuleiro.BARCO_PATRULHA:
+			return (or == Navio.VERTICAL ? imagensNavios[5] : imagensNavios[0]);
+		case Tabuleiro.DESTROIER:                                             
+			return (or == Navio.VERTICAL ? imagensNavios[6] : imagensNavios[1]);
+		case Tabuleiro.SUBMARINO:                                             
+			return (or == Navio.VERTICAL ? imagensNavios[7] : imagensNavios[2]);
+		case Tabuleiro.ENCOURACADO:                                           
+			return (or == Navio.VERTICAL ? imagensNavios[8] : imagensNavios[3]);
+		case Tabuleiro.PORTA_AVIOES:                                          
+			return (or == Navio.VERTICAL ? imagensNavios[9] : imagensNavios[4]);
+		default:
+			return null;
+		}
+	}
+
+	public void iniciaBatalha() {
+		// TODO Auto-generated method stub
+		jogador.getJogo().setEstado(Jogo.VEZ_JOG1);
+		mapa1.removeMouseListener();
+		mapa1.removeMouseMotionListener();
+		
+	}
+
+	private void adicionaCaixaEventos() {
+
+		JPanel painelEventos = new JPanel(new GridLayout(1, 1));
+		painelEventos.setPreferredSize(new Dimension(630, 150));
+		painelEventos
+				.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+		caixaEventos = new JTextArea(5, 0);
+		JScrollPane rolagemEventos = new JScrollPane(caixaEventos);
+		caixaEventos.setEditable(false);
+
+		painelEventos.add(rolagemEventos);
+		add(painelEventos, BorderLayout.SOUTH);
+	}
+
+	public void mostraEvento (String msg) {
+		caixaEventos.append(msg + "\n");
+	}
+
+	private class TratadorAcoes implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object src = e.getSource();
+
+			if (src == itemJogoSair) {
+				System.exit(0);
+			} else if (src instanceof JRadioButtonMenuItem
+					&& src != itemNivelAtual) {
+				JOptionPane.showMessageDialog(null,
+						"O grau de dificuldade será modificado no próximo jogo.",
+						"Dificuldade", JOptionPane.INFORMATION_MESSAGE);
+					/*jogo.reset((src == itemNivelMedio ? Jogo.MEDIO :
+						(src == itemNivelDificil ? Jogo.DIFICIL :
+							Jogo.FACIL))); */
+					itemNivelAtual = (JRadioButtonMenuItem)src;
+			} else if (src == itemAjudaSobre) {
+				JanelaSobre sobre = new JanelaSobre(JanelaPrincipal.this);
+				sobre.pack();
+				sobre.setVisible(true);
+			}
+		}
+	}
+}

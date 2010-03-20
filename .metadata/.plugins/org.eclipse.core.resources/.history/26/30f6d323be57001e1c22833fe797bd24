@@ -1,0 +1,41 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+public class Principal {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Jogo novoJogo = new Jogo();
+		
+		Point[] posBPatrulha = new Point[2];
+		posBPatrulha[0] = new Point(0, 2);
+		posBPatrulha[1] = new Point(1, 2);
+		
+		Point[] posDestroier = new Point[3];
+		posDestroier[0] = new Point(0, 4);
+		posDestroier[1] = new Point(0, 5);
+		posDestroier[2] = new Point(0, 6);
+
+		Point[] posSubmarino = new Point[3];
+		posSubmarino[0] = new Point(4, 4);
+		posSubmarino[1] = new Point(4, 5);
+		posSubmarino[2] = new Point(4, 6);
+		
+		Point[] posEncouracado = new Point[4];
+		posEncouracado[0] = new Point(6, 9);
+		posEncouracado[1] = new Point(7, 9);
+		posEncouracado[2] = new Point(8, 9);
+		posEncouracado[3] = new Point(9, 9);
+		
+
+		novoJogo.getJogador(0).posicionaNavio(posBPatrulha, 2);
+		novoJogo.getJogador(0).posicionaNavio(posDestroier, 4);
+		novoJogo.getJogador(0).posicionaNavio(posSubmarino, 8);
+		novoJogo.getJogador(0).posicionaNavio(posEncouracado, 16);
+
+		System.out.println(novoJogo.getJogador(0).getTabuleiro().toString());
+	}
+}

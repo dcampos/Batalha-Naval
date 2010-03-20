@@ -1,0 +1,13 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.wst.common.snippets,1.1.200.v200805140415,org.eclipse.wst.common.snippets,1245036816886
+stopped,bundle,org.eclipse.ui.ide,3.4.2.M20090127-1700,org.eclipse.ui.ide,1245036816886
+stopped,bundle,org.eclipse.epp.usagedata.ui,1.0.1.R200809220400,org.eclipse.epp.usagedata.ui,1245036816887
+stopped,bundle,org.eclipse.ui.intro.universal,3.2.200.v20080508,org.eclipse.ui.intro.universal,1245036816888
+stopped,bundle,org.eclipse.ui.intro,3.2.201.v20080702_34x,org.eclipse.ui.intro,1245036816888
+stopped,bundle,org.eclipse.ui.views.properties.tabbed,3.4.2.M20090127-1700,org.eclipse.ui.views.properties.tabbed,1245036816889
+stopped,bundle,org.eclipse.update.scheduler,3.2.100.v20080404,org.eclipse.update.scheduler,1245036816889
+stopped,bundle,org.eclipse.update.ui,3.2.101.R34x_v20081128,org.eclipse.update.ui,1245036816891
+stopped,bundle,org.eclipse.mylyn.commons.ui,3.0.5.v20090218-1800-e3x,org.eclipse.mylyn.commons.ui,1245036816891
+stopped,bundle,org.eclipse.ui.forms,3.3.103.v20081027_34x,org.eclipse.ui.forms,1245036816891
+stopped,bundle,org.eclipse.ui.navigator,3.3.102.M20090127-1700,org.eclipse.ui.navigator,1245036816892
+stopped,bundle,org.eclipse.ui.net,1.0.0.I20080605,org.eclipse.ui.net,1245036816892

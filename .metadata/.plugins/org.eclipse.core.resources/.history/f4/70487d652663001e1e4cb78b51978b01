@@ -1,0 +1,80 @@
+package batalhanaval;
+
+import java.awt.Point;
+import java.util.ArrayList;
+
+public class Robo extends Jogador {
+	
+	public static final int ACERTOU_AGUA = 0;
+	public static final int ACERTOU_NAVIO = 1;
+	
+	public static final int NORTE = 0;
+	public static final int SUL = 1;
+	public static final int LESTE = 2;
+	public static final int OESTE = 3;
+
+	private int estado;
+	private int direcao;
+	private Point ultimoAcerto;
+	private ArrayList<Point> naviosAcertados;
+	
+	public Robo(Jogo jogo) {
+		super(jogo);
+		
+		naviosAcertados = new ArrayList<Point>();
+		
+		for (Navio navio : getFrota()) {
+			posicionaNavio(navio);
+		}
+	}
+	
+	public int atira (){
+		if (getJogo().getDificuldade()==Jogo.FACIL){
+			return super.atira();
+		}else if(getJogo().getDificuldade()==Jogo.MEDIO){
+			int i = (int)Math.random()*2;
+			if (i==1){
+				return super.atira();
+			}
+		//	return atiraInteligente(); 
+		}
+		//return atiraInteligente();
+	}
+	
+	private void posicionaNavio(Navio n) {
+		int x = (int) (Math.random() * 10);
+		int y = (int) (Math.random() * 10);
+		int orientacao = (int) (Math.random() * 2);
+
+		Point pos = new Point(x, y);
+		n.setPosicao(pos);
+		n.setOrientacao(orientacao);
+		if (!getTabuleiro().cabeNavio(n)) {
+			posicionaNavio(n);
+		} else{
+			getTabuleiro().adicionaNavio(n);
+		}
+	}
+	private void setEstado (int estado){
+		this.estado = estado;
+	}
+	
+	private int atiraInteligente(){
+		if (estado == 0){			
+			int res = super.atira();
+			
+			if (res != 1) {
+				setEstado(ACERTOU_NAVIO);
+				ultimoAcerto = getTiros().get(getTiros().size()-1);
+				naviosAcertados.add(ultimoAcerto);
+			}
+			return res;
+		} else {
+			
+		
+		
+		
+		
+		}
+	}
+}

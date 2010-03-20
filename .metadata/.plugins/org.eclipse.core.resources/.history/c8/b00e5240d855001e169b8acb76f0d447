@@ -1,0 +1,74 @@
+package batalhanaval;
+
+import java.awt.Point;
+import java.io.Serializable;
+
+/**
+ * Jogador de batalha naval.
+ * 
+ * @param jogo
+ * 
+ */
+
+public class Jogador {
+	private Jogo jogo;
+	private Tabuleiro tabuleiro;
+	private Navio[] frota;
+
+	/**
+	 * Cria um novo jogador para o jogo.
+	 * 
+	 * @param jogo Jogo do qual o jogador participa.
+	 */
+	
+	public Jogador(Jogo jogo) {
+		this.jogo = jogo;
+		this.tabuleiro = new Tabuleiro(); // Tabuleiro zerado
+		this.frota = new Navio[5];
+		
+		frota[0] = new BarcoPatrulha(this);
+		frota[1] = new Submarino	(this);
+		frota[2] = new Destroier 	(this);
+		frota[3] = new Encouracado	(this);
+		frota[4] = new PortaAvioes	(this);
+	}
+
+	/**
+	 * Atira num ponto determinado.
+	 * 
+	 * @param linha
+	 * @param coluna
+	 */
+	public void atira(int linha, int coluna) {
+	
+	}
+
+	/**
+	 * 
+	 * Atira automaticamente, através de inteligência
+	 * artificial.
+	 * 
+	 */
+	public void atira() {
+		
+	}
+
+	public Tabuleiro getTabuleiro () {
+		return tabuleiro;
+	}
+	
+	public Navio getNavio(int id) {
+		for (int i = 0; i < frota.length; i++) {
+			if (frota[i].getId() == id) return frota[i];
+		}
+		return null;
+	}
+	
+	public Jogo getJogo() {
+		return jogo;
+	}
+	
+	public void posicionaNavio (Point[] pos, int n) {
+		frota[n].setPosicao(pos);
+	}
+}

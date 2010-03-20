@@ -1,0 +1,14 @@
+package batalhanaval;
+
+/**
+ * Barco de patrulha.
+ * 
+ * @author Darlan, Roger
+ *
+ */
+public class BarcoPatrulha extends Navio {
+
+	public BarcoPatrulha(Jogador jog) {
+		super(2, 10, jog);
+	}
+}

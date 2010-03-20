@@ -1,0 +1,26 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+public class Robo extends Jogador {
+
+	public Robo(Jogo jogo) {
+		super(jogo);
+		
+		for (Navio navio : getFrota()) {
+			posicionaNavio(navio);
+		}
+
+	}
+
+	private void posicionaNavio(Navio n) {
+		int x = (int) (Math.random() * 10);
+		int y = (int) (Math.random() * 10);
+
+		Point pos = new Point(x, y);
+		n.setPosicao(pos);
+		if (!getTabuleiro().cabeNavio(n)) {
+			posicionaNavio(n);
+		}
+	}
+}

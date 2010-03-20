@@ -1,0 +1,13 @@
+package batalhanaval;
+
+public class Principal {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Jogo novoJogo = new Jogo();
+		System.out.println(jogadores[0].getNavio(12));
+	}
+
+}

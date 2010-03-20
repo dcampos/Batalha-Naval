@@ -1,0 +1,16 @@
+package batalhanaval;
+
+/**
+ * Destróier.
+ * 
+ * @author Darlan P. de Campos
+ * @author Roger de  Córdova Farias
+ *
+ */
+
+public class Destroier extends Navio{
+
+	public Destroier(Jogador jog) {
+		super(3, 4, jog);
+	}
+}

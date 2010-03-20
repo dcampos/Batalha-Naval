@@ -4,15 +4,22 @@ import java.awt.Point;
 import java.io.Serializable;
 
 /**
- * Classe abstrata básica de um navio.
+ * Classe de um navio.
  * 
  * @author
  * 
  */
-public abstract class Navio implements Serializable {
+public class Navio implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	// Constantes para os identificadores dos navios.
+	public static final int BARCO_PATRULHA = 2;
+	public static final int DESTROIER = 4;
+	public static final int SUBMARINO = 8;
+	public static final int ENCOURACADO = 16;
+	public static final int PORTA_AVIOES = 32;
+
 	public static final int HORIZONTAL = 0;
 	public static final int VERTICAL = 1;
 
@@ -24,7 +31,7 @@ public abstract class Navio implements Serializable {
 	private Point posicao;
 	private int orientacao;
 
-	public Navio(String nome, int tamanho, int identificador, Jogador jogador) {
+	private Navio(String nome, int tamanho, int identificador, Jogador jogador) {
 		this.nome = nome;
 		this.tamanho = tamanho;
 		this.id = identificador;
@@ -33,6 +40,23 @@ public abstract class Navio implements Serializable {
 		this.posicao = null;
 		this.orientacao = HORIZONTAL;
 	}
+
+    public static Navio constroiNavio(int id, Jogador jog) {
+		switch (id) {
+            case BARCO_PATRULHA:
+                return new Navio("Barco de patrulha", 2, 2, jog);
+            case DESTROIER:                                             
+                return new Navio("Destróier", 3, 4, jog);
+            case SUBMARINO:                                             
+                return new Navio("Submarino", 3, 8, jog);
+            case ENCOURACADO:                                           
+                return new Navio("Encouraçado", 4, 16, jog);
+            case PORTA_AVIOES:                                          
+                return new Navio("Porta-aviões", 5, 32, jog);
+            default:
+                return null;
+		}
+    }
 
 	public String getNome() {
 		return nome;

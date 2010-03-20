@@ -1,0 +1,10 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+public class BarcoPatrulha extends Navio {
+
+	public BarcoPatrulha(Jogador jog) {
+		super(2, 12, jog);
+	}
+}

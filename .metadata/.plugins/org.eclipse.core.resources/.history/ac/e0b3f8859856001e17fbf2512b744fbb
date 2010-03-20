@@ -1,0 +1,8 @@
+package batalhanaval;
+
+public class Destroier extends Navio{
+
+	public Destroier(Jogador jog) {
+		super(3, 8, jog);
+	}
+}

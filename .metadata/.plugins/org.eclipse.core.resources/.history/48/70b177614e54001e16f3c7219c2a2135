@@ -1,0 +1,11 @@
+package batalhanaval;
+
+import java.awt.Point;
+	
+public class Destroier extends Navio {
+	public static final INT TAMANHO = 4;
+
+	public Destroier(Point[] pos, Jogador jog) {
+		super(4, 12, pos, jog);
+	}
+}

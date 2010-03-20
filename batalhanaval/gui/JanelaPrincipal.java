@@ -95,12 +95,14 @@ public class JanelaPrincipal extends JFrame {
 					} else if ( res > 1) {
 						if (JanelaPrincipal.this.jogo.getEstado() == Jogo.TERMINADO) {
 							temp.stop();
-							mostraEvento("A batalha terminou! Você foi derrotado!");
+							//mostraEvento("A batalha terminou! Você foi derrotado!");
+                            mostraEventos();
 						} else if (JanelaPrincipal.this.jogo.getJogador(
 								0 ).getNavio(res).estaDestruido())
-							mostraEvento("O adversário afundou o seu "
-									+ JanelaPrincipal.this.jogo.getJogador(
-											0 ).getNavio(res).getNome().toLowerCase() + "!");
+							//mostraEvento("O adversário afundou o seu "
+							//		+ JanelaPrincipal.this.jogo.getJogador(
+							//				0 ).getNavio(res).getNome().toLowerCase() + "!");
+                            mostraEventos();
 					}
 				}
 			}
@@ -243,15 +245,15 @@ public class JanelaPrincipal extends JFrame {
 
 	public Image getImagemNavio(int id, int or) {
 		switch (id) {
-		case Tabuleiro.BARCO_PATRULHA:
+		case Navio.BARCO_PATRULHA:
 			return (or == Navio.VERTICAL ? imagensNavios[5] : imagensNavios[0]);
-		case Tabuleiro.DESTROIER:                                             
+		case Navio.DESTROIER:                                             
 			return (or == Navio.VERTICAL ? imagensNavios[6] : imagensNavios[1]);
-		case Tabuleiro.SUBMARINO:                                             
+		case Navio.SUBMARINO:                                             
 			return (or == Navio.VERTICAL ? imagensNavios[7] : imagensNavios[2]);
-		case Tabuleiro.ENCOURACADO:                                           
+		case Navio.ENCOURACADO:                                           
 			return (or == Navio.VERTICAL ? imagensNavios[8] : imagensNavios[3]);
-		case Tabuleiro.PORTA_AVIOES:                                          
+		case Navio.PORTA_AVIOES:                                          
 			return (or == Navio.VERTICAL ? imagensNavios[9] : imagensNavios[4]);
 		default:
 			return null;
@@ -283,6 +285,16 @@ public class JanelaPrincipal extends JFrame {
 		// Rolagem automática
 		caixaEventos.setCaretPosition(caixaEventos.getDocument().getLength() );		
 	}
+
+    public void mostraEventos () {
+        Evento e = jogo.getEvento();
+
+        while (e != null) {
+            mostraEvento(e.getMensagem());
+
+            e = jogo.getEvento();
+        }
+    }
 
 	private class TratadorAcoes implements ActionListener {
 

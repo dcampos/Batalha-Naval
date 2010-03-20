@@ -1,0 +1,61 @@
+package batalhanaval.gui;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+
+import batalhanaval.*;
+
+@SuppressWarnings("serial")
+public class PainelGrade extends JPanel {
+	Image agua, fogo, fundo;
+	Rectangle clip;
+
+	public PainelGrade(Jogador jogador, String imgFundo) {
+		Dimension dim = new Dimension(300, 300);
+		setPreferredSize(dim);
+//		setBackground(Color.BLUE);
+		setBorder(BorderFactory.createLineBorder(Color.BLUE));
+		
+		clip = new Rectangle(dim);
+		
+		// Carrega as imagens do disco
+		try {
+			agua = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + "agua.png"));
+			fogo = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + "fogo.png"));
+			fundo = ImageIO.read(new File("." + File.separator + "img"
+					+ File.separator + imgFundo));
+
+		} catch (IOException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
+	}
+
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(fundo, 0, 0, null);
+		g.setColor(Color.BLUE);
+
+//		clip.setSize(30, 30);
+//		clip.setLocation(30, 0);
+//		g.setClip(clip);
+		
+		for (int i = 1; i < 11; i++) {
+			g.drawLine(i * 30, 0, i * 30, 300);
+			g.drawLine(0, i * 30, 300, i * 30);
+		}
+		g.drawImage(agua, 0, 0, null);
+		g.drawImage(fogo, 30, 0, null);
+	}
+}

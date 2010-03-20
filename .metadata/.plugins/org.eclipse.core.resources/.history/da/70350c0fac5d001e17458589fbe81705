@@ -1,0 +1,18 @@
+package batalhanaval.gui;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
+public class JanelaSobre extends JFrame {
+	public JanelaSobre() {
+		super("Sobre");
+		
+		JTextArea creditos = new JTextArea("<html>Batalha Naval 1.0</html>");
+		creditos.setOpaque(false);
+		creditos.setEditable(false);
+		
+		add(creditos);
+	}
+}

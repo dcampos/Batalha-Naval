@@ -1,0 +1,12 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+public class PortaAvioes extends Navio {
+
+	public PortaAvioes(Jogador jog) {
+		super(5, 14, jog);
+	}
+
+}
+ 

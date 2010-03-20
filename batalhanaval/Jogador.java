@@ -40,11 +40,11 @@ public class Jogador implements Serializable {
 
 		this.tiros = new ArrayList<Point>();
 
-		frota[0] = new BarcoPatrulha(this);
-		frota[1] = new Destroier(this);
-		frota[2] = new Submarino(this);
-		frota[3] = new Encouracado(this);
-		frota[4] = new PortaAvioes(this);
+        frota[0] = Navio.constroiNavio(Navio.BARCO_PATRULHA, this);
+        frota[1] = Navio.constroiNavio(Navio.DESTROIER, this);
+        frota[2] = Navio.constroiNavio(Navio.SUBMARINO, this);
+        frota[3] = Navio.constroiNavio(Navio.ENCOURACADO, this);
+        frota[4] = Navio.constroiNavio(Navio.PORTA_AVIOES, this);
 
 		for (int i = 0; i < frota.length; i++)
 			this.frotaRestante += frota[i].getId();
@@ -92,10 +92,10 @@ public class Jogador implements Serializable {
 	}
 
 	/**
-	 * Posiciona e define a orientaÃ§Ã£o de um navio no tabuleiro.
+	 * Posiciona e define a orientação de um navio no tabuleiro.
 	 * 
-	 * @param pos PosiÃ§Ã£o do navio.
-	 * @param or OrientaÃ§Ã£o (vertical ou horizontal).
+	 * @param pos Posição do navio.
+	 * @param or Orientação (vertical ou horizontal).
 	 * @param id Identificador.
 	 */
 	public void posicionaNavio(Point pos, int id) {
@@ -119,10 +119,15 @@ public class Jogador implements Serializable {
 	 * Destroi um navio do jogador, subtraindo id de seu
 	 * total de identificadores de navios.
 	 * 
-	 * @param id O identificador do navio destruÃ­do.
+	 * @param id O identificador do navio destruído.
 	 */
 	private void destroiNavio(int id) {
 		frotaRestante -= id;
+		
+        jogo.addEvento( getOponente() instanceof Robo
+                ? "O adversário afundou o seu " + getNavio(id).getNome().toLowerCase() + "!"
+                : "Você afundou o " + getNavio(id).getNome().toLowerCase() + " do adversário!" );
+		
 		if (frotaRestante == 0)
 			jogo.setEstado(Jogo.TERMINADO);
 	}

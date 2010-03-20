@@ -1,0 +1,65 @@
+package batalhanaval;
+
+/**
+ * O tabuleiro do jogador.
+ * 
+ * Possui um array bidimensional de inteiros (mapa)
+ * representando as seguintes informações:<br>
+ * 
+ * 1 - Quadrado vazio<br>
+ * 2 - Barco de patrulha<br>
+ * 4 - Destróier<br>
+ * 8 - Submarino<br>
+ * 16 - Encouraçado<br>
+ * 32 - Porta-aviões<br>
+ * 
+ * Quando o quadrado é atingido, passa para o negativo.
+ * 
+ * @author Darlan P. de Campos
+ * @author Roger de Córdova Farias
+ *
+ */
+public class Tabuleiro {
+
+	private int mapa[][];
+	
+	public Tabuleiro(int largura, int altura) {
+		mapa = new int[largura][altura];
+		
+		for (int i = 0; i < mapa.length; i++)
+			for (int j = 0; j < mapa[i].length; j++)
+				mapa[j][i] = 1;
+	}
+	
+	/**
+	 * Define uma posição do tabuleiro.
+	 * 
+	 * @param x Coluna
+	 * @param y Linha
+	 * @param tipo Tipo do valor
+	 */
+	public void setPosicao(int x, int y, int tipo) {
+		mapa[x][y] = tipo;
+	}
+
+	public int[][] getMapa() {
+		return mapa;
+	}
+
+	public int getPosicao(int x, int y) {
+		return mapa[x][y];
+	}
+
+	@Override
+	public String toString() {
+		String tab = new String();
+		
+		for (int i = 0; i < mapa.length; i++) {
+			for (int j = 0; j < mapa[i].length; j++)
+				tab += String.format("%4d", mapa[i][j]);
+			tab += "\n";
+		}
+		
+		return tab;
+	}
+}

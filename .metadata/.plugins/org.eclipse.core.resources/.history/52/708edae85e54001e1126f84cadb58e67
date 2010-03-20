@@ -1,0 +1,19 @@
+package batalhanaval;
+
+import java.io.Serializable;
+
+/**
+ * Jogo de batalha naval.
+ * 
+ * @author Darlan, Roger
+ *
+ */
+
+public class Jogo implements Serializable{
+	private Jogador[] jogadores;
+	
+	public Jogo() {
+		jogadores[0] = new Jogador(this);
+	}
+}
+ 

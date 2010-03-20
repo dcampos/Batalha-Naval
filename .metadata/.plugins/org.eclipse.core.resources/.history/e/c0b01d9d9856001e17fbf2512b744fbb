@@ -1,0 +1,9 @@
+package batalhanaval;
+
+public class PortaAvioes extends Navio {
+
+	public PortaAvioes(Jogador jog) {
+		super(5, 32, jog);
+	}
+
+}

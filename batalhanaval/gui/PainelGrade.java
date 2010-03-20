@@ -23,7 +23,7 @@ import batalhanaval.exceptions.PosicaoJaAtingidaException;
  * 
  * @param jogador O jogador a quem o tabuleiro pertence.
  * @author Darlan P. de Campos
- * @author Roger de C√≥rdova Farias
+ * @author Roger de CÛrdova Farias
  */
 @SuppressWarnings("serial")
 public class PainelGrade extends JPanel {
@@ -48,7 +48,7 @@ public class PainelGrade extends JPanel {
 						jogador.getTabuleiro().getMapa()[0].length*DIM_QUADRADO);
 		setPreferredSize(dim);
 
-		// Quadrado onde o ponteiro est√°
+		// Quadrado onde o ponteiro est·
 		posicaoAtual = new Point(0, 0);
 		
 		// Atual navio sendo posicionado
@@ -56,10 +56,10 @@ public class PainelGrade extends JPanel {
 			idNavioAtual = 2;
 			orientacaoAtual = Navio.HORIZONTAL;
 			jogador.getNavio(idNavioAtual).setPosicao(posicaoAtual);
-			principal.mostraEvento("Prepare-se! A batalha vai come√ßar!\n" +
-								   "Movimente o navio com o mouse e clique com o " +
-								   "bot√£o esquerdo para posicion√°-lo.\n" +
-								   "Para mudar a orienta√ß√£o, clique com o bot√£o direito.");
+            principal.mostraEventos();
+            principal.mostraEvento("Movimente o navio com o mouse e clique com o " +
+                                   "bot„o esquerdo para posicion·-lo.\n" +
+                                   "Para mudar a orientaÁ„o, clique com o bot„o direito.");
 		}
 		
 		TratadorMouse tm = new TratadorMouse();
@@ -114,7 +114,7 @@ public class PainelGrade extends JPanel {
 			if (!(jogador instanceof Robo) // Jogador humano?
 					&& jogador.getJogo().getEstado() == Jogo.POSICIONANDO_NAVIOS) {
 				if ((e.getModifiers() & InputEvent.BUTTON3_MASK)
-						== InputEvent.BUTTON3_MASK) { // Bot√£o direito?
+						== InputEvent.BUTTON3_MASK) { // Bot„o direito?
 					int orientacaoAntiga = orientacaoAtual;
 					orientacaoAtual = (orientacaoAtual == Navio.VERTICAL
 							? Navio.HORIZONTAL
@@ -129,7 +129,7 @@ public class PainelGrade extends JPanel {
 					}
 
 					painel.repaint();
-				} else if (idNavioAtual <= 32 ) { // Bot√£o esquerdo?
+				} else if (idNavioAtual <= 32 ) { // Bot„o esquerdo?
 					try {
 						jogador.getTabuleiro().adicionaNavio(
 								jogador.getNavio(idNavioAtual));
@@ -151,12 +151,14 @@ public class PainelGrade extends JPanel {
 						principal.tempoDeEspera();
 					} else if ( res > 1){
 							if (jogador.getNavio(res).estaDestruido()) {
-								principal.mostraEvento("Voc√™ afundou o "
-										+ jogador.getNavio(res).getNome().toLowerCase()
-										+ " do advers√°rio!");								
+//                                principal.mostraEvento("VocÍ afundou o "
+//                                        + jogador.getNavio(res).getNome().toLowerCase()
+//                                        + " do advers·rio!");								
+                                principal.mostraEventos();
 							}
 							if (jogador.getJogo().getEstado() == Jogo.TERMINADO) {
-								principal.mostraEvento("A batalha terminou! Voc√™ venceu!");
+                                principal.mostraEventos();
+//                                principal.mostraEvento("A batalha terminou! VocÍ venceu!");
 							}
 					}
 				} catch (PosicaoJaAtingidaException ex) {
@@ -188,7 +190,7 @@ public class PainelGrade extends JPanel {
 		@Override
 		public void mouseDragged(MouseEvent e) { mouseMoved(e); }
 
-		// M√©todos n√£o usados
+		// MÈtodos n„o usados
 		@Override
 		public void mouseEntered(MouseEvent e) {}
 		@Override

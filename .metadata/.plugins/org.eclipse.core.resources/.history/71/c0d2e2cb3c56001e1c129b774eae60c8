@@ -1,0 +1,16 @@
+package batalhanaval;
+
+/**
+ * @author Darlan, Roger
+ *
+ */
+public class Tabuleiro {
+	public void setXY(int x, int y, int valor) {
+		
+	}
+
+	public int getXY() {
+		return new int;
+	}
+
+}

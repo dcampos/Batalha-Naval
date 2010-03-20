@@ -25,14 +25,7 @@ import java.io.Serializable;
 public class Tabuleiro implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	// Constantes para os identificadores dos navios.
-	public static final int BARCO_PATRULHA = 2;
-	public static final int DESTROIER = 4;
-	public static final int SUBMARINO = 8;
-	public static final int ENCOURACADO = 16;
-	public static final int PORTA_AVIOES = 32;
-	
+
 	private int mapa[][];
 
 	public Tabuleiro(int largura, int altura) {

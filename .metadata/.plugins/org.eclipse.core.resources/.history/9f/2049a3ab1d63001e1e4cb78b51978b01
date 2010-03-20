@@ -1,0 +1,12 @@
+package batalhanaval;
+
+
+
+public class Robo extends Jogador {
+
+	public Robo(Jogo jogo) {
+		super(jogo);
+		
+	}
+
+}

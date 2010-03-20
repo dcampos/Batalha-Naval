@@ -1,0 +1,36 @@
+package batalhanaval;
+
+import java.awt.Point;
+
+public abstract class Navio {
+	private int tamanho;
+	private int id;
+	private Point[] posicao;
+	private Jogador jogador;
+	
+	public Navio(int tamanho, int identificador, Point[] posicao, Jogador jogador) {
+		this.tamanho = tamanho;
+		this.id = identificador;
+		this.posicao = posicao;
+		this.jogador = jogador;
+	}
+	
+	public int getTamanho () {
+		return tamanho;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public Jogador getJogador() {
+		return jogador;
+	}
+	
+	public void setPosicao(Point[] pos) {
+		posicao = pos;
+		for (int i = 0; i < pos.length; i++) {
+			jogador.setPosTabuleiro(pos[i].y, pos[i].x, id);
+		}
+	}
+}

@@ -1,0 +1,6 @@
+import src.Navio;
+
+public class Submarino extends Navio {
+ 
+}
+ 

@@ -1,0 +1,16 @@
+package batalhanaval;
+
+/**
+ * Submarino.
+ * 
+ * @author Darlan, Roger
+ *
+ */
+
+public class Submarino extends Navio {
+	
+	public Submarino(Jogador jog) {
+		super(3, 8, jog);
+	}
+
+}

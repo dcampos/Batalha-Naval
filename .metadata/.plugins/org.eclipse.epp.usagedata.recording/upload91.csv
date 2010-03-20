@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.4.2.M20090127-1700,,1244566868288
+executed,command,org.eclipse.ui,3.4.2.M20090204-0800,org.eclipse.ui.edit.paste,1244567125052
+no handler,command,org.eclipse.ui,3.4.2.M20090204-0800,org.eclipse.ui.edit.text.contentAssist.proposals,1244567128428
+activated,workbench,org.eclipse.ui.workbench,3.4.2.M20090127-1700,,1244567165022
+executed,command,org.eclipse.jdt.ui,3.4.2.r342_v20090107-0800,org.eclipse.jdt.ui.generate.javadoc,1244567165053
+opened,view,org.eclipse.ui.console,3.3.1.v20090128_r342,org.eclipse.ui.console.ConsoleView,1244567166913
+activated,view,org.eclipse.ui.console,3.3.1.v20090128_r342,org.eclipse.ui.console.ConsoleView,1244567175538
+activated,view,org.eclipse.jdt.ui,3.4.2.r342_v20090107-0800,org.eclipse.jdt.ui.PackageExplorer,1244567181866
+started,bundle,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser,1244567194882
+opened,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567195616
+activated,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567195663
+activated,view,org.eclipse.jdt.ui,3.4.2.r342_v20090107-0800,org.eclipse.jdt.ui.PackageExplorer,1244567195788
+activated,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567198679
+activated,view,org.eclipse.jdt.ui,3.4.2.r342_v20090107-0800,org.eclipse.jdt.ui.PackageExplorer,1244567215789
+opened,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567216554
+activated,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567216601
+activated,view,org.eclipse.jdt.ui,3.4.2.r342_v20090107-0800,org.eclipse.jdt.ui.PackageExplorer,1244567216695
+activated,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567217617
+activated,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567217711
+closed,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567217711
+activated,view,org.eclipse.jdt.ui,3.4.2.r342_v20090107-0800,org.eclipse.jdt.ui.PackageExplorer,1244567254992
+opened,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567255305
+activated,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567255352
+activated,view,org.eclipse.jdt.ui,3.4.2.r342_v20090107-0800,org.eclipse.jdt.ui.PackageExplorer,1244567255446
+activated,editor,org.eclipse.ui.browser,3.2.201.v20080708_34x,org.eclipse.ui.browser.editor,1244567257008

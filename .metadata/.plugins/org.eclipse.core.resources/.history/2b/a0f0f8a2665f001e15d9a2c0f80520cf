@@ -1,0 +1,65 @@
+package batalhanaval;
+
+
+/**
+ * Jogo de batalha naval.
+ * 
+ * @author Darlan P. de Campos
+ * @author Roger de Córdova Farias
+ * 
+ */
+
+public class Jogo {
+	// Versão do jogo
+	public static final float VERSAO = 1.0;
+	// Níveis de dificuldade
+	public static final int FACIL = 0;
+	public static final int MEDIO = 1;
+	public static final int DIFICIL = 2;
+
+	private Jogador[] jogadores;
+
+	private int dificuldade;
+
+	public Jogo() {
+		jogadores = new Jogador[2];
+		jogadores[0] = new Jogador(this);
+		jogadores[1] = new Jogador(this, FACIL);
+		
+		dificuldade = FACIL;
+	}
+
+	/**
+	 * Retorna um booleano indicando se o jogo já terminou.
+	 * 
+	 * @return true ou false
+	 */
+	public boolean estaTerminado() {
+		return (jogadores[0].getFrotaRestante() == 0
+			||  jogadores[1].getFrotaRestante() == 0);
+	}
+
+	/**
+	 * 
+	 * @param i
+	 * @return O jogador indicado por <code>i</code>
+	 */
+	public Jogador getJogador(int i) {
+		return jogadores[i];
+	}
+
+	/**
+	 * Retorna o oponente do jogador
+	 * passado como parâmetro.
+	 * 
+	 * @param j
+	 * @return <code>Jogador</code>
+	 */
+	public Jogador getOponente(Jogador j) {
+		return (j == jogadores[0]) ? jogadores[1] : jogadores[0];
+	}
+	
+	public int getDificuldade() {
+		return dificuldade;
+	}
+}

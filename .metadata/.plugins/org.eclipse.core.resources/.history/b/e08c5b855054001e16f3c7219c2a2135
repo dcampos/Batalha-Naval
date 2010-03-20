@@ -1,0 +1,5 @@
+package batalhanaval;
+public class Encouracado extends Navio {
+ 
+}
+ 

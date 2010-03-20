@@ -1,0 +1,218 @@
+package batalhanaval.gui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import batalhanaval.Jogo;
+
+@SuppressWarnings("serial")
+public class JanelaPrincipal extends JFrame {
+	Jogo jogo;
+
+	// Imagens
+	Image imagens[];
+	
+	// Menu
+	JMenuBar barraMenus;
+
+	JMenu menuJogo;
+	JMenuItem itemJogoNovo;
+	JMenuItem itemJogoAbrir;
+	JMenuItem itemJogoSalvar;
+	JMenuItem itemJogoSair;
+
+	JMenu menuJogoNivel;
+	JRadioButtonMenuItem itemNivelFacil;
+	JRadioButtonMenuItem itemNivelMedio;
+	JRadioButtonMenuItem itemNivelDificil;
+	JRadioButtonMenuItem itemNivelAtual; // Identifica o nível atual
+
+	JMenu menuAjuda;
+	JMenuItem itemAjudaSobre;
+
+	JTextArea caixaEventos;
+
+	public JanelaPrincipal(Jogo jogo) {
+		super("Batalha Naval " + Jogo.VERSAO);
+		
+		this.jogo = jogo;
+
+		setLayout(new BorderLayout());
+		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		abreImagens();
+		adicionaGrades();
+		adicionaMenus();
+		adicionaCaixaEventos();
+	}
+
+	/**
+	 * Lê as imagens a partir do disco.
+	 * 
+	 * As imagens podem ser acessadas pelos métodos
+	 * getImagemFogo(), getImagemAgua() e getImagemNavio(ind idNavio)
+	 * 
+	 */
+	private void abreImagens() {
+		imagens = new Image[7]; // 5 navios + fogo + água
+		String arquivos[] = new String[]
+		                               {"fogo.png", "agua.png"};
+	}
+
+	private void adicionaGrades() {
+		JPanel mapas = new JPanel(new GridLayout(1, 2, 30, 10));
+		//mapas.setPreferredSize(new Dimension(830, 400));
+		mapas.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+//		JPanel mapa1 = new JPanel(new GridLayout(10, 10));
+//		mapa1.setPreferredSize(new Dimension(400, 400));
+//		mapa1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+		PainelGrade mapa1 = new PainelGrade(this.jogo.getJogador(0));
+		
+		
+		JPanel mapa2 = new JPanel(new GridLayout(10, 10));
+		mapa2.setPreferredSize(new Dimension(300, 300));
+		mapa2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+		mapas.add(mapa1);
+		mapas.add(mapa2);
+		add(mapas, BorderLayout.NORTH);
+
+	}
+
+	private void adicionaMenus() {
+		menuJogo = new JMenu("Jogo");
+		menuJogo.setMnemonic('J');
+
+		TratadorAcoes ta = new TratadorAcoes();
+		itemJogoNovo = new JMenuItem("Novo");
+		itemJogoNovo.setMnemonic('N');
+		itemJogoAbrir = new JMenuItem("Abrir...");
+		itemJogoAbrir.setMnemonic('A');
+		itemJogoSalvar = new JMenuItem("Salvar");
+		itemJogoSalvar.setMnemonic('S');
+		itemJogoSair = new JMenuItem("Sair");
+		itemJogoSair.setMnemonic('R');
+		itemJogoSair.addActionListener(ta);
+
+		menuJogoNivel = new JMenu("Nível");
+		menuJogoNivel.setMnemonic('N');
+
+		itemNivelFacil = new JRadioButtonMenuItem("Fácil");
+		itemNivelFacil.setMnemonic('F');
+		itemNivelFacil.setSelected(true);
+		itemNivelFacil.addActionListener(ta);
+		itemNivelMedio = new JRadioButtonMenuItem("Médio");
+		itemNivelMedio.setMnemonic('M');
+		itemNivelMedio.addActionListener(ta);
+		itemNivelDificil = new JRadioButtonMenuItem("Difícil");
+		itemNivelDificil.setMnemonic('D');
+		itemNivelDificil.addActionListener(ta);
+		
+		itemNivelAtual = itemNivelFacil;
+
+		ButtonGroup grupoNivel = new ButtonGroup();
+		grupoNivel.add(itemNivelFacil);
+		grupoNivel.add(itemNivelMedio);
+		grupoNivel.add(itemNivelDificil);
+
+		menuJogoNivel.add(itemNivelFacil);
+		menuJogoNivel.add(itemNivelMedio);
+		menuJogoNivel.add(itemNivelDificil);
+
+		menuJogo.add(itemJogoNovo);
+		menuJogo.add(itemJogoAbrir);
+		menuJogo.add(itemJogoSalvar);
+		menuJogo.add(menuJogoNivel);
+		menuJogo.addSeparator();
+		menuJogo.add(itemJogoSair);
+
+		barraMenus = new JMenuBar();
+		barraMenus.add(menuJogo);
+
+		menuAjuda = new JMenu("Ajuda");
+		menuAjuda.setMnemonic('A');
+
+		itemAjudaSobre = new JMenuItem("Sobre...");
+		itemAjudaSobre.setMnemonic('S');
+		itemAjudaSobre.addActionListener(ta);
+
+		menuAjuda.add(itemAjudaSobre);
+		barraMenus.add(menuAjuda);
+
+		setJMenuBar(barraMenus);
+	}
+
+	private void adicionaCaixaEventos() {
+
+		JPanel painelEventos = new JPanel(new GridLayout(1, 1));
+		//painelEventos.setPreferredSize(new Dimension(830, 150));
+		painelEventos
+				.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+		caixaEventos = new JTextArea(5, 0);
+		JScrollPane rolagemEventos = new JScrollPane(caixaEventos);
+		caixaEventos.setEditable(false);
+
+		painelEventos.add(rolagemEventos);
+		add(painelEventos, BorderLayout.SOUTH);
+	}
+
+	private class TratadorAcoes implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object src = e.getSource();
+
+			if (src == itemJogoSair) {
+				System.exit(0);
+			} else if (src != itemNivelAtual
+					&& (src == itemNivelFacil
+					|| src == itemNivelMedio
+					|| src == itemNivelDificil)) {
+				if (JOptionPane.showConfirmDialog(JanelaPrincipal.this,
+						"Isso iniciará um novo jogo. Deseja terminar o jogo atual?",
+						"Terminar jogo", JOptionPane.OK_CANCEL_OPTION) == 0) {
+					/* jogo.reset((src == itemNivelMedio ? Jogo.MEDIO :
+						(src == itemNivelDificil ? Jogo.DIFICIL :
+							Jogo.FACIL))); */
+					itemNivelAtual = (JRadioButtonMenuItem)src;
+				} else {
+					if (src == itemNivelMedio)
+						itemNivelMedio.setSelected(true);
+					else if (src == itemNivelDificil)
+						itemNivelDificil.setSelected(true);
+					else
+						itemNivelFacil.setSelected(true);
+				}
+
+			} else if (src == itemAjudaSobre) {
+				JanelaSobre sobre = new JanelaSobre(JanelaPrincipal.this);
+				sobre.pack();
+				sobre.setVisible(true);
+			}
+
+		}
+
+	}
+
+}
